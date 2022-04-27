@@ -40,7 +40,7 @@ listint_t *insert_node(listint_t **head, int number)
 		if (compare->next->n > new->n)
 		{
 			new->next = compare->next;
-			compare = new;
+			compare->next = new;
 			return (new);
 		}
 		compare = compare->next;
