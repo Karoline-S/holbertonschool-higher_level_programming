@@ -6,4 +6,5 @@ if __name__ == "__main__":
     list_names = dir(hidden_4)
 
     for name in list_names:
-        print(name.replace("__", ""))
+        if name[0] != "_":
+            print(name)
