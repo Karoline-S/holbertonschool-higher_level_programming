@@ -1,4 +1,7 @@
 #!/usr/bin/python3
-add = __import__('add_0').add
+from add_0 import add
 
-print(add(1, 2))
+a = 1
+b = 2
+
+print(f"{a} + {b} = {add(1, 2)}")
