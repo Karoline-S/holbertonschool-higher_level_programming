@@ -2,6 +2,26 @@
 #include "lists.h"
 
 /**
+ * list_length - counts the nodes in a singly linked list
+ * @head: a ptr to the start of the list
+ * Return: number of nodes in the list
+ */
+int list_length(listint_t **head)
+{
+	int length = 0;
+
+	if (head == NULL || *head == NULL)
+		return (0);
+
+	while (head != NULL)
+	{
+		length++;
+		head = head->next;
+	}
+	return (length);
+}
+
+/**
  * is_palindrome - checks if a singly linked list is a palindrome
  * @head: a double pointer to the start of the list
  *
@@ -10,18 +30,11 @@
 int is_palindrome(listint_t **head)
 {
 	int track = 0, count = 0, length = 0;
-	listint_t *ptr;
 
-	if (head == NULL || *head == NULL || (*head)->next == NULL)
+	length = list_length(head);
+
+	if (length <= 1)
 		return (1);
-
-	ptr = *head;
-
-	while (ptr != NULL)
-	{
-		length++;
-		ptr = ptr->next;
-	}
 
 	count = length / 2;
 
