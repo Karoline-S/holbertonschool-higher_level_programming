@@ -26,7 +26,7 @@ int list_length(listint_t *head)
  */
 int is_palindrome(listint_t **head)
 {
-	int track = 0, count = 0, length = 0;
+	int tally = 0, halfway = 0, length = 0;
 
 	if (head == NULL || *head == NULL)
 		return (1);
@@ -36,13 +36,13 @@ int is_palindrome(listint_t **head)
 	if (length == 1)
 		return (1);
 
-	count = length / 2;
+	halfway = length / 2;
 
-	while (count > 0)
+	while (halfway > 0)
 	{
-		track += (*head)->n;
+		tally += (*head)->n;
 		*head = (*head)->next;
-		count--;
+		halfway--;
 	}
 
 	if (length % 2 != 0)
@@ -50,11 +50,11 @@ int is_palindrome(listint_t **head)
 
 	while (*head != NULL)
 	{
-		track -= (*head)->n;
+		tally -= (*head)->n;
 		*head = (*head)->next;
 	}
 
-	if (track == 0)
+	if (tally == 0)
 		return (1);
 	else
 		return (0);
