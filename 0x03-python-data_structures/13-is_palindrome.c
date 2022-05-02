@@ -12,17 +12,17 @@ int is_palindrome(listint_t **head)
 	int track = 0, idx = 0, length = 0;
 	listint_t *ptr = *head;
 
-	if (head == NULL || *head == NULL)
+	if (head == NULL)
 		return (0);
+
+	if (*head == NULL)
+		return (1);
 
 	while (ptr != NULL)
 	{
 		length++;
 		ptr = ptr->next;
 	}
-
-	if (length < 2)
-		return (0);
 
 	idx = length / 2;
 	while (idx > 0)
