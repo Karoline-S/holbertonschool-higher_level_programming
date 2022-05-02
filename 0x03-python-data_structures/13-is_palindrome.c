@@ -12,9 +12,6 @@ int is_palindrome(listint_t **head)
 	int track = 0, idx = 0, length = 0;
 	listint_t *ptr = *head;
 
-	if (head == NULL)
-		return NULL;
-
 	if (*head == NULL)
 		return (1);
 
