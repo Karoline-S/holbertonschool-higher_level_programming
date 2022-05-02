@@ -12,7 +12,7 @@ int is_palindrome(listint_t **head)
 	int track = 0, count = 0, length = 0;
 	listint_t *ptr;
 
-	if (*head == NULL)
+	if (head == NULL || *head == NULL)
 		return (1);
 
 	ptr = *head;
