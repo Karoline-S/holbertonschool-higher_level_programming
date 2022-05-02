@@ -9,14 +9,13 @@
  */
 int is_palindrome(listint_t **head)
 {
-	int track = 0, idx = 0, length = 0;
-	listint_t *ptr = *head;
-
-	if (head == NULL)
-		return NULL;
+	int track = 0, count = 0, length = 0;
+	listint_t *ptr;
 
 	if (*head == NULL)
 		return (1);
+
+	ptr = *head;
 
 	while (ptr != NULL)
 	{
@@ -24,12 +23,16 @@ int is_palindrome(listint_t **head)
 		ptr = ptr->next;
 	}
 
-	idx = length / 2;
-	while (idx > 0)
+	if (length == 1)
+		return (1);
+
+	count = length / 2;
+
+	while (count > 0)
 	{
 		track += (*head)->n;
 		*head = (*head)->next;
-		idx--;
+		count--;
 	}
 
 	if (length % 2 != 0)
