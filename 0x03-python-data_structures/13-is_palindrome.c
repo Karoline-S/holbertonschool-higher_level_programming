@@ -64,11 +64,13 @@ int is_palindrome(listint_t **head)
 	while (halfway > 0)
 	{
 		check = compare_nodes(*head, length);
+
 		if (check != 0)
 			return (0);
+
 		*head = (*head)->next;
 		halfway--;
-		length--;
+		length -= 2;
 	}
 
 	return (1);
