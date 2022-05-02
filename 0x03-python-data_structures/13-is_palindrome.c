@@ -12,7 +12,7 @@ int is_palindrome(listint_t **head)
 	int track = 0, count = 0, length = 0;
 	listint_t *ptr;
 
-	if (head == NULL || *head == NULL)
+	if (head == NULL || *head == NULL || (*head)->next == NULL)
 		return (1);
 
 	ptr = *head;
@@ -22,9 +22,6 @@ int is_palindrome(listint_t **head)
 		length++;
 		ptr = ptr->next;
 	}
-
-	if (length == 1)
-		return (1);
 
 	count = length / 2;
 
