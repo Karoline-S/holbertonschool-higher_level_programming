@@ -6,12 +6,9 @@
  * @head: a ptr to the start of the list
  * Return: number of nodes in the list
  */
-int list_length(listint_t **head)
+int list_length(listint_t *head)
 {
 	int length = 0;
-
-	if (head == NULL || *head == NULL)
-		return (0);
 
 	while (head != NULL)
 	{
@@ -31,9 +28,12 @@ int is_palindrome(listint_t **head)
 {
 	int track = 0, count = 0, length = 0;
 
-	length = list_length(head);
+	if (head == NULL || *head == NULL)
+		return (1);
 
-	if (length <= 1)
+	length = list_length(*head);
+
+	if (length == 1)
 		return (1);
 
 	count = length / 2;
