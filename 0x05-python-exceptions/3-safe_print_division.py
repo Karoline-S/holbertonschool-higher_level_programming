@@ -10,6 +10,6 @@ def safe_print_division(a, b):
         return
 
     finally:
-            print(f"Inside result: {result}")
+            print("Inside result: {}".format(result))
 
     return result
