@@ -69,8 +69,8 @@ class Square:
                     print("#", sep="", end="")
                 print()
 
-
     def __str__(self):
+        """defines behavriour of print for this class Square"""
         print_str = ""
 
         if self.__size == 0:
