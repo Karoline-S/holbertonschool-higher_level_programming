@@ -55,8 +55,8 @@ integers')
                 for i in range(self.position[1]):
                     print()
             for j in range(self.size):
-                for k in range(self.position[0]):
+                for space in range(self.position[0]):
                     print(" ", sep="", end="")
-                for l in range(self.size):
+                for char in range(self.size):
                     print("#", sep="", end="")
                 print()
