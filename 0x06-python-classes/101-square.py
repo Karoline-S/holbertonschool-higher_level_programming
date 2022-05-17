@@ -85,4 +85,5 @@ class Square:
                 for char in range(self.size):
                     print_str = print_str + "#"
                 print_str = print_str + "\n"
-        return print_str
+
+        return print_str[:-1]
