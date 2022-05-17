@@ -8,9 +8,9 @@ class Square:
             raise TypeError('size must be an integer')
         if size < 0:
             raise ValueError('size must be >= 0')
-        self._Square__size = size
+        self.__size = size
 
     def area(self):
         """returns the current size of a square"""
-        if self._Square__size:
-            return self._Square__size ** 2
+        if self.__size:
+            return self.__size ** 2
