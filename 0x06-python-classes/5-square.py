@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""a class for a Square"""
+
+
 class Square:
     """defines a square"""
     def __init__(self, size=0):
@@ -34,6 +37,6 @@ class Square:
             print()
         else:
             for i in range(self.size):
-                for j in range (self.size):
+                for j in range(self.size):
                     print("#", sep="", end="")
                 print()
