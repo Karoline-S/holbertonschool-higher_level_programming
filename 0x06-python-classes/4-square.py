@@ -8,25 +8,22 @@ class Square:
             raise TypeError('size must be an integer')
         if size < 0:
             raise ValueError('size must be >= 0')
-        self._Square__size = size
+        self.__size = size
 
     def area(self):
         """returns the current size of a square"""
-        if self._Square__size:
-            return self._Square__size ** 2
+        return self.__size ** 2
 
     @property
     def size(self):
         """get size"""
-        return self._Square__size
+        return self.__size
 
     @size.setter
     def size(self, value):
         """set size"""
-        if not value:
-            return self._Square__size
         if type(value) != int:
             raise TypeError('size must be an integer')
         if value < 0:
             raise ValueError('size must be >= 0')
-        self._Square__size = value
+        self.__size = value
