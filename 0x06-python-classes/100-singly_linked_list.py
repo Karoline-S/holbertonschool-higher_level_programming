@@ -40,7 +40,6 @@ class SinglyLinkedList:
     def __init__(self):
         self.__head = None
 
-
     def sorted_insert(self, value):
         new_node = Node(value)
 
@@ -62,7 +61,6 @@ class SinglyLinkedList:
 
         new_node.next_node = current.next_node
         current.next_node = new_node
-
 
     def __str__(self):
         res = ""
