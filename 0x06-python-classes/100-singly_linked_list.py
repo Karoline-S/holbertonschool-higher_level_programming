@@ -1,46 +1,32 @@
 #!/usr/bin/python3
-"""creates a singly linked list"""
+"""create a singly linked list"""
 
 
 class Node:
     """
-    class for Node
+    define a class Node
+    initialise each instance with arg data and optional arg next_node
     """
     def __init__(self, data, next_node=None):
-        """
-        initialise an instance of Node
-        """
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
-        """
-        retrieves data for instance
-        """
-        return self.data
+        return self.__data
 
     @data.setter
     def data(self, value):
-        """
-        sets the value for data for an instance
-        """
         if type(value) is not int:
             raise TypeError('data must be an integer')
         self.__data = value
 
     @property
     def next_node(self):
-        """
-        retrieves next_node for instance
-        """
-        return next_node
+        return self.__next_node
 
     @next_node.setter
     def next_node(self, value):
-        """
-        sets the value for next_node for instance
-        """
         if not isinstance(value, Node) and value is not None:
             raise TypeError('next_node must be a Node object')
         self.__next_node = value
@@ -48,7 +34,7 @@ class Node:
 
 class SinglyLinkedList:
     """
-    class for a singly linked list
+    class to create a singly linked list
     """
 
     def __init__(self):
@@ -57,22 +43,25 @@ class SinglyLinkedList:
 
     def sorted_insert(self, value):
         new_node = Node(value)
-        if self.__head:
-            current = self.__head
-            if current.data >= value:
-                self.head = new_node
-                new_node.next_node = current.next_node
-            else:
-                while (current.next_node and current.data < value):
-                    previous = current
-                    current = current.next_node
-                if current.next_node:
-                    previous.next_node = new_node
-                    new_node.next_node = current
-                else:
-                    current.next_node = new_node
-        else:
+
+        if self.__head is None:
             self.__head = new_node
+            return
+
+        if self.__head.data >= new_node.data:
+            new_node.next_node = self.__head
+            self.__head = new_node
+            return
+
+        current = self.__head
+
+        while current.next_node is not None:
+            if current.next_node.data >= new_node.data:
+                break
+            current = current.next_node
+
+        new_node.next_node = current.next_node
+        current.next_node = new_node
 
 
     def __str__(self):
@@ -80,8 +69,10 @@ class SinglyLinkedList:
 
         current = self.__head
 
-        while current:
-            res += str(current.data) + '\n'
+        while current is not None:
+            res += str(current.data)
+            if current.next_node is not None:
+                res += "\n"
             current = current.next_node
 
         return res
