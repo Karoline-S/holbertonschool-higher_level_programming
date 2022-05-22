@@ -1,0 +1,96 @@
+Test doc for module 3-say_my_name
+=================================
+
+Importing module
+----------------
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+Testing happy path
+------------------
+
+      	>>> say_my_name("Julia")
+	My name is Julia 
+
+      	>>> say_my_name("Julia Gillard")
+	My name is Julia Gillard 
+
+      	>>> say_my_name("Julia", "Gillard")
+	My name is Julia Gillard
+
+
+Testing data validation
+-----------------------
+
+Test first_name argument:
+
+	>>> say_my_name(["Julia", "Gillard"])
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("")
+	My name is  
+
+	>>> say_my_name(True, "Gillard")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+	>>> say_my_name(None, "Gillard")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+
+Test last_name argument:
+
+	>>> say_my_name("Julia", 14)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+	>>> say_my_name("", "Gillard")
+	My name is  Gillard
+
+	>>> say_my_name("Julia", None)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+
+Testing data modification
+-------------------------
+
+	>>> say_my_name("julia", "gillard")
+	My name is Julia Gillard
+
+	>>> say_my_name("jULIA", "gILLARD")
+	My name is Julia Gillard
+
+	>>> say_my_name("ju1ia", "gi11ard")
+	My name is Ju1Ia Gi11Ard
+
+	>>> say_my_name("Ju1ia", "Gillard")
+	My name is Ju1Ia Gillard
+
+	>>> say_my_name("     julia", "GILLARD      ")
+	My name is Julia Gillard
+
+
+Testing other possible misuse
+-----------------------------
+
+	>>> say_my_name()
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+	>>> say_my_name("Julia", "May", "Gillard")
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
+
+	>>> say_my_name("", "")
+	My name is  
