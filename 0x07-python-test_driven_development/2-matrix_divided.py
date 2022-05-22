@@ -18,19 +18,20 @@ def matrix_divided(matrix, div):
     zero_err_msg = 'division by zero'
     size_err_msg = 'Each row of the matrix must have the same size'
 
-    # validate div: int or float and not 0
     if type(div) not in [int, float]:
         raise TypeError(div_err_msg)
+
     if div == 0:
         raise ZeroDivisionError(zero_err_msg)
 
-    # validate matrix: a list of at least 2 items
     if type(matrix) is not list:
         raise TypeError(mat_err_msg)
     try:
         type(matrix[1])
+
     except IndexError:
         raise TypeError(mat_err_msg)
+
     if type(matrix[0]) is not list:
         raise TypeError(mat_err_msg)
 
@@ -39,15 +40,13 @@ def matrix_divided(matrix, div):
     if list_len == 0:
         raise TypeError(mat_err_msg)
 
-    # validate matrix: each item of type list and of equal size
     for row in matrix:
         if type(row) is not list:
             raise TypeError(mat_err_msg)
+
         if not len(row) == list_len:
             raise TypeError(size_err_msg)
 
-
-        # validate matrix: list items are ints or floats
         for x in row:
             if type(x) not in [int, float]:
                 raise TypeError(mat_err_msg)
