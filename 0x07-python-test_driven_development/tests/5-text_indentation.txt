@@ -1,0 +1,88 @@
+Test doc for module 4-text_indentation
+==================================
+
+Importing module
+----------------
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+Testing happy path
+------------------
+
+      	>>> text_indentation("test string: how are you")
+	test string:
+	<BLANKLINE>
+	how are you
+
+      	>>> text_indentation("test string: how are you:.?")
+	test string:
+	<BLANKLINE>
+	how are you:
+	<BLANKLINE>
+	.
+	<BLANKLINE>
+	?
+	<BLANKLINE>
+
+	>>> my_string = "this is a very long string, isn't it? I thought that: a) we could get to know each other, and b) we'd have fun. What do you think?"
+	>>> text_indentation(my_string)
+	this is a very long string, isn't it?
+	<BLANKLINE>
+	I thought that:
+	<BLANKLINE>
+	a) we could get to know each other, and b) we'd have fun.
+	<BLANKLINE>
+	What do you think?
+	<BLANKLINE>
+
+	>>> text_indentation("nothing to see here\n")
+	nothing to see here
+
+	>>> text_indentation("help." + "me." + "please!")
+	help.
+	<BLANKLINE>
+	me.
+	<BLANKLINE>
+	please!
+
+	>>> text_indentation(str("func in a func" + " call"))
+	func in a func call
+
+
+Testing data validation
+-----------------------
+
+	>>> text_indentation(-10)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+	>>> text_indentation(["spongebob"])
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+	>>> text_indentation(None)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+	>>> text_indentation(True)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
+
+
+Testing other possible misuse
+-----------------------------
+
+	>>> text_indentation()
+	Traceback (most recent call last):
+	...
+	TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+	>>> text_indentation("help", "me")
+	Traceback (most recent call last):
+	...
+	TypeError: text_indentation() takes 1 positional argument but 2 were given
