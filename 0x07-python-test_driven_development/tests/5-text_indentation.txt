@@ -15,6 +15,12 @@ Testing happy path
 	<BLANKLINE>
 	how are you
 
+	>>> text_indentation("test string: how are you?\n")
+	test string:
+	<BLANKLINE>
+	how are you?
+	<BLANKLINE>
+
       	>>> text_indentation("test string: how are you:.?")
 	test string:
 	<BLANKLINE>
