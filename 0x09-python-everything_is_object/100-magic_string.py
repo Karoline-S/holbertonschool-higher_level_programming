@@ -2,6 +2,7 @@
 
 magic_count = 0
 
+
 def magic_string():
     """prints the string BestSchool once and then again incremented
     by one on each call
