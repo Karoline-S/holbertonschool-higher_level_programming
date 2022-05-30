@@ -8,5 +8,4 @@ def lookup(obj):
     """Function to return the attributes of an object in a list
     """
 
-    attrs = [dir(obj)]
-    return attrs
+    return list(dir(obj))
