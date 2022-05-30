@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""a module containing one class: MyList
+"""
+
+
 class MyList(list):
     """a class that inherits from list class
     has one public method, 'print_sorted'
