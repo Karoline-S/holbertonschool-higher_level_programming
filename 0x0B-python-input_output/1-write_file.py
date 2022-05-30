@@ -14,8 +14,5 @@ def write_file(filename="", text=""):
     if type(text) != str:
         raise TypeError('text must be a string')
 
-    if filename is None or filename == "":
-        raise ValueError('filename cannnot be empty')
-
     with open(filename, 'w', encoding="utf-8") as f:
         return f.write(text)
