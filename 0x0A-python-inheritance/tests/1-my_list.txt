@@ -46,6 +46,11 @@ Testing
 	>>> my_list.print_sorted()
 	['?', 'go', 'how', 'this', 'will']
 
+	>>> my_list = MyList([[5, 2, 1], [3, 4, 6]])
+	>>> my_list.print_sorted()
+	[[3, 4, 6], [5, 2, 1]]
+
+
 Testing errors
 --------------
 
@@ -54,3 +59,9 @@ Testing errors
 	Traceback (most recent call last):
 	...
 	TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+	>>> my_list = MyList([1, "hello", [2, 3], 4])
+	>>> my_list.print_sorted()
+	Traceback (most recent call last):
+	...
+	TypeError: '<' not supported between instances of 'str' and 'int'
