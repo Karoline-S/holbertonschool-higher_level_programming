@@ -4,49 +4,44 @@ Import the module
 -----------------
       >>> MyList = __import__('1-my_list').MyList
 
-Create objects
----------------
-	>>> my_list = MyList()
-	>>> my_list.append(1)
-	>>> my_list.append(4)
-	>>> my_list.append(2)
-	>>> my_list.append(3)
-	>>> my_list.append(5)
+Testing
+-------
+	>>> my_list = MyList([1, 2, 3, 4, 5])
 	>>> my_list.print_sorted()
 	[1, 2, 3, 4, 5]
 
-	>>> my_list = MyList()
-	>>> my_list.append(5)
-	>>> my_list.append(4)
-	>>> my_list.append(3)
-	>>> my_list.append(2)
-	>>> my_list.append(1)
+	>>> my_list = MyList([500, 400, 300, 200, 100])
+	>>> my_list.print_sorted()
+	[100, 200, 300, 400, 500]
+
+	>>> my_list = MyList([2, 3, 5, 1, 4])
 	>>> my_list.print_sorted()
 	[1, 2, 3, 4, 5]
 
-	>>> my_list = MyList()
-	>>> my_list.append(2)
-	>>> my_list.append(2)
-	>>> my_list.append(2)
-	>>> my_list.append(3)
-	>>> my_list.append(2)
+	>>> my_list = MyList([1, -2, 3, 4, 5])
 	>>> my_list.print_sorted()
-	[2, 2, 2, 2, 3]
+	[-2, 1, 3, 4, 5]
 
-	>>> my_list = MyList()
-	>>> my_list.append(1)
-	>>> my_list.append(1)
-	>>> my_list.append(1)
-	>>> my_list.append(1)
-	>>> my_list.append(1)
+	>>> my_list = MyList([-1, -2, -3, -4, -5])
 	>>> my_list.print_sorted()
-	[1, 1, 1, 1, 1]
+	[-5, -4, -3, -2, -1]
 
-	>>> my_list = MyList()
-	>>> my_list.append(100)
+	>>> my_list = MyList([1.4, 0, -1.43, 4.7, 5.0])
 	>>> my_list.print_sorted()
-	[100]
+	[-1.43, 0, 1.4, 4.7, 5.0]
 
-	>>> my_list = MyList()
+	>>> my_list = MyList([1])
+	>>> my_list.print_sorted()
+	[1]
+
+	>>> my_list = MyList([])
 	>>> my_list.print_sorted()
 	[]
+
+	>>> my_list = MyList(['a', 'B', 'c', 'D', 'e'])
+	>>> my_list.print_sorted()
+	['B', 'D', 'a', 'c', 'e']
+
+	>>> my_list = MyList(["how", "will", "this", "go", "?"])
+	>>> my_list.print_sorted()
+	['?', 'go', 'how', 'this', 'will']
