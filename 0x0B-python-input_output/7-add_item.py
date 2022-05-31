@@ -4,7 +4,6 @@ to a Python list and then save them to a file
 """
 
 import sys
-import json
 
 load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
@@ -12,11 +11,10 @@ save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
 filename = "add_item.json"
 j_repr = []
 
-with open(filename, 'a', encoding="utf-8") as f:
-    try:
-        j_repr = load_from_json_file(filename)
-    except BaseException:
-        pass
+try:
+    j_repr = load_from_json_file(filename)
+except BaseException:
+    pass
 
 j_repr = [*j_repr + sys.argv[1:]]
 
