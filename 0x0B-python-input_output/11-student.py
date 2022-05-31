@@ -19,6 +19,10 @@ class Student:
         self.age = age
 
     def to_json(self, attrs=None):
+        """returns a simple dict for an object
+        if attrs is a list of string keys, return
+        a new dict with only these keys"""
+
         if type(attrs) == list:
             for item in attrs:
                 if type(item) != str:
@@ -28,5 +32,7 @@ class Student:
         return self.__dict__
 
     def reload_from_json(self, json):
+        """reloads obj from a json repr
+        """
         for key, value in json.items():
             setattr(self, key, value)
