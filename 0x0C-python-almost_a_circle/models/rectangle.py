@@ -117,22 +117,35 @@ class Rectangle(Base):
                 print('#', end="")
             print()
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """updates attrs with value/s passed in the following order:
         id, width, height, x, y
         """
         num_args = len(args)
+        a_list = ['id', 'height', 'width', 'x', 'y']
 
-        if num_args > 0:
-            self.id = args[0]
-        if num_args > 1:
-            self.width = args[1]
-        if num_args > 2:
-            self.height = args[2]
-        if num_args > 3:
-            self.x = args[3]
         if num_args > 4:
             self.y = args[4]
+        if num_args > 3:
+            self.x = args[3]
+        if num_args > 2:
+            self.height = args[2]
+        if num_args > 1:
+            self.width = args[1]
+        if num_args > 0:
+            self.id = args[0]
+        else:
+            for key, value in kwargs.items():
+                if 'id' in kwargs:
+                    self.id = kwargs['id']
+                if 'width' in kwargs:
+                    self.width = kwargs['width']
+                if 'height' in kwargs:
+                    self.height = kwargs['height']
+                if 'x' in kwargs:
+                    self.x = kwargs['x']
+                if 'y' in kwargs:
+                    self.y = kwargs['y']
 
     def __str__(self):
         """sets string and print output for Rectangle instance"""
