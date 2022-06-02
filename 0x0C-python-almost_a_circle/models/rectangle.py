@@ -12,12 +12,16 @@ class Rectangle(Base):
     Private instance attributes with public getters and setters:
     __width, __height, __x, __y
 
+    class constructor instantiates with width and height, plus optional
+    x, y and id
+
     Data validation:
     __width, __height must be integers of greater than 0
     __x, __y must be integers of greater than or equal to 0
 
-    class constructor instantiates with width and height, plus optional
-    x, y and id
+    Public methods:
+    area() - returns the area of a Rectangle instance
+    display() - prints a Rectangle instance using '#' to stdout
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -93,3 +97,13 @@ class Rectangle(Base):
     def area(self):
         """return the area of a rectangle"""
         return self.height * self.width
+
+    def display(self):
+        """prints the dimensions of a rectangle instance using '#'
+        to stdout
+        """
+
+        for i in range(self.height):
+            for j in range(self.width):
+                print('#', end="")
+            print()
