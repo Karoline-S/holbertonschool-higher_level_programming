@@ -2,6 +2,7 @@
 """
 A module containing one class: Rectangle
 """
+
 from models.base import Base
 
 
@@ -22,6 +23,7 @@ class Rectangle(Base):
     Public methods:
     area() - returns the area of a Rectangle instance
     display() - prints a Rectangle instance using '#' to stdout
+    update() - updates attrs with given arguments
 
     Magic methods overwritten:
     __str__()
@@ -105,7 +107,6 @@ class Rectangle(Base):
         """prints the dimensions of a rectangle instance using '#'
         to stdout
         """
-
         if self.y != 0:
             for i in range(self.y):
                 print()
@@ -116,6 +117,24 @@ class Rectangle(Base):
                 print('#', end="")
             print()
 
+    def update(self, *args):
+        """updates attrs with value/s passed in the following order:
+        id, width, height, x, y
+        """
+        num_args = len(args)
+
+        if num_args > 0:
+            self.id = args[0]
+        if num_args > 1:
+            self.width = args[1]
+        if num_args > 2:
+            self.height = args[2]
+        if num_args > 3:
+            self.x = args[3]
+        if num_args > 4:
+            self.y = args[4]
+
     def __str__(self):
+        """sets string and print output for Rectangle instance"""
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - "\
-           f"{self.width}/{self.height}"
+            f"{self.width}/{self.height}"
