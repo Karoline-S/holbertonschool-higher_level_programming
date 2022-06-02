@@ -21,7 +21,6 @@ class Base:
         class constructor:
         increments __nb_objects with each instantiation
         if 'id' is None, id is set to __nb_objects
-        
         """
 
         __nb_objects += 1
