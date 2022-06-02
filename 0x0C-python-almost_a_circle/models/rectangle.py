@@ -22,6 +22,9 @@ class Rectangle(Base):
     Public methods:
     area() - returns the area of a Rectangle instance
     display() - prints a Rectangle instance using '#' to stdout
+
+    Magic methods overwritten:
+    __str__()
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -107,3 +110,7 @@ class Rectangle(Base):
             for j in range(self.width):
                 print('#', end="")
             print()
+
+    def __str__(self):
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - "\
+           f"{self.width}/{self.height}"
