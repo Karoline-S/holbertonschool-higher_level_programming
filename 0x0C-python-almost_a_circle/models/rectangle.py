@@ -106,7 +106,12 @@ class Rectangle(Base):
         to stdout
         """
 
+        if self.y != 0:
+            for i in range(self.y):
+                print()
         for i in range(self.height):
+            for k in range(self.x):
+                print(" ", end="")
             for j in range(self.width):
                 print('#', end="")
             print()
