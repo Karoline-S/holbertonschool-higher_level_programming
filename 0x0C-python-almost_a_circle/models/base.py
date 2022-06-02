@@ -23,8 +23,8 @@ class Base:
         if 'id' is None, id is set to __nb_objects
         """
 
-        __nb_objects += 1
         if id is None:
-            self.id = __nb_objects
+            Base.__nb_objects += 1
+            self.id = Base.__nb_objects
         else:
             self.id = id
