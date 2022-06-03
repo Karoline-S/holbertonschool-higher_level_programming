@@ -24,6 +24,7 @@ class Rectangle(Base):
     area() - returns the area of a Rectangle instance
     display() - prints a Rectangle instance using '#' to stdout
     update() - updates attrs with given arguments
+    to_dictionary() - dictionary representation of an instance
 
     Magic methods overwritten:
     __str__()
@@ -146,6 +147,11 @@ class Rectangle(Base):
                     self.x = kwargs['x']
                 if 'y' in kwargs:
                     self.y = kwargs['y']
+
+    def to_dictionary(self):
+        """returns a dictionary representation of an instance"""
+        return {'x': self.x, 'y': self.y, 'id': self.id,
+                'height': self.height, 'width': self.width}
 
     def __str__(self):
         """sets string and print output for Rectangle instance"""
