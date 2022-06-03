@@ -18,6 +18,10 @@ class Square(Rectangle):
     Class constructor instantiates with size (converted to width and height,
     plus optional x, y and id
 
+    Public methods:
+    update()
+    to_dictionary()
+
     Magic methods overwritten:
     __str__()
     """
@@ -69,6 +73,9 @@ class Square(Rectangle):
                     self.x = kwargs['x']
                 if 'y' in kwargs:
                     self.y = kwargs['y']
+
+    def to_dictionary(self):
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
 
     def __str__(self):
         """sets string and print output for Rectangle instance"""
