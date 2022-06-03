@@ -41,10 +41,36 @@ class Square(Rectangle):
             raise TypeError('width must be an integer')
         if value < 1:
             raise ValueError('width must be > 0')
-        self.__width = value
-        self.__height = value
+        self.width = value
+        self.height = value
+
+    def update(self, *args, **kwargs):
+        """updates attrs with value/s passed in the following order:
+        id, width, height, x, y
+        """
+        num_args = len(args)
+        a_list = ['id', 'size', 'x', 'y']
+
+        if num_args > 3:
+            self.y = args[3]
+        if num_args > 2:
+            self.x = args[2]
+        if num_args > 1:
+            self.size = args[1]
+        if num_args > 0:
+            self.id = args[0]
+        else:
+            for key, value in kwargs.items():
+                if 'id' in kwargs:
+                    self.id = kwargs['id']
+                if 'size' in kwargs:
+                    self.size = kwargs['size']
+                if 'x' in kwargs:
+                    self.x = kwargs['x']
+                if 'y' in kwargs:
+                    self.y = kwargs['y']
 
     def __str__(self):
         """sets string and print output for Rectangle instance"""
         return f"[Square] ({self.id}) {self.x}/{self.y} - "\
-            f"{self.width}"
+            f"{self.size}"
