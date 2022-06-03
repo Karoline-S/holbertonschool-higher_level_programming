@@ -13,7 +13,9 @@ class Square(Rectangle):
     Private instance attrs inherited from and set by Rectangle super class:
     __height, __width , __x, __y
 
-    class constructor instantiates with size (converted to width and height,
+    Private instance attribute size with public setter and getter
+
+    Class constructor instantiates with size (converted to width and height,
     plus optional x, y and id
 
     Magic methods overwritten:
@@ -25,6 +27,22 @@ class Square(Rectangle):
         and height and optional x, y and id
         """
         super().__init__(size, size, x, y, id)
+
+    @property
+    def size(self):
+        """return object's size"""
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """set object's size to height and width after data validation
+        size must be an integer greater than 0"""
+        if type(value) != int:
+            raise TypeError('width must be an integer')
+        if value < 1:
+            raise ValueError('width must be > 0')
+        self.__width = value
+        self.__height = value
 
     def __str__(self):
         """sets string and print output for Rectangle instance"""
