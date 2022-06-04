@@ -5,6 +5,7 @@ in this package
 """
 
 import json
+from os.path import exists
 
 
 class Base:
@@ -19,7 +20,7 @@ class Base:
     to_json_string() and from_json_string()
 
     2 x class method:
-    save_to_file() and create()
+    save_to_file(), create(), load_from_file()
     """
 
     __nb_objects = 0
@@ -69,10 +70,25 @@ class Base:
         """
         new_list = []
         filename = cls.__name__ + ".json"
-        print(filename)
+
         if list_objs and len(list_objs) > 0:
             for item in list_objs:
                 new_list.append(item.to_dictionary())
 
         with open(filename, 'w', encoding="utf-8") as f:
             f.write(cls.to_json_string(new_list))
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of objects from a string in a file
+        """
+        filename = cls.__name__ + ".json"
+
+        if not exists(filename):
+            return []
+        with open(filename, 'r') as f:
+            json_string = f.read()
+        new_list = cls.from_json_string(json_string)
+        for key, value in enumerate(new_list):
+            new_list[key] = cls.create(**new_list[key])
+        return new_list
