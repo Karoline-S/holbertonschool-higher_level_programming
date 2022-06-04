@@ -42,6 +42,14 @@ class Base:
             return "[]"
         return json.dumps(list_dictionaries)
 
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the list of the JSON string representation
+        """
+        if not json_string or len(json_string) < 1:
+            return []
+        return json.loads(json_string)
+
     @classmethod
     def save_to_file(cls, list_objs):
         """saves a JSON string representation of list_objs
