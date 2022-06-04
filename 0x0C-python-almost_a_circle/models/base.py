@@ -14,8 +14,12 @@ class Base:
     1 x private class attribute: __nb_objects
     1 x public instance attribute: id
     class constructor taking optional argument: id
-    1 x static method: to_json_string()
-    1 x class method: save_to_file()
+
+    2 x static method:
+    to_json_string() and from_json_string()
+
+    2 x class method:
+    save_to_file() and create()
     """
 
     __nb_objects = 0
@@ -49,6 +53,14 @@ class Base:
         if not json_string or len(json_string) < 1:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """create an object from a list of dictionaries
+        """
+        dummy = cls(1, 1)
+        dummy.update(**dictionary)
+        return dummy
 
     @classmethod
     def save_to_file(cls, list_objs):
