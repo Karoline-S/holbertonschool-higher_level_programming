@@ -14,7 +14,8 @@ class Base:
     1 x private class attribute: __nb_objects
     1 x public instance attribute: id
     class constructor taking optional argument: id
-    1 x static method: to_json_string
+    1 x static method: to_json_string()
+    1 x class method: save_to_file()
     """
 
     __nb_objects = 0
@@ -40,3 +41,18 @@ class Base:
         if not list_dictionaries or list_dictionaries == "":
             return "[]"
         return json.dumps(list_dictionaries)
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """saves a JSON string representation of list_objs
+        to a .json file
+        """
+        new_list = []
+        filename = cls.__name__ + ".json"
+        print(filename)
+        if list_objs and len(list_objs) > 0:
+            for item in list_objs:
+                new_list.append(item.to_dictionary())
+
+        with open(filename, 'w', encoding="utf-8") as f:
+            f.write(cls.to_json_string(new_list))
