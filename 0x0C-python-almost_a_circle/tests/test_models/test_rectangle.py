@@ -53,7 +53,7 @@ class TestRectangleDocs(unittest.TestCase):
 
 
 class TestRectangle(unittest.TestCase):
-    """ Tests functionality of class"""
+    """ Tests initialisation, getters and setters"""
 
     def test_properties(self):
         """Tests all setters and getters"""
@@ -68,6 +68,56 @@ class TestRectangle(unittest.TestCase):
         r_1.y = 10
         self.assertEqual(r_1.x, 10)
         self.assertEqual(r_1.y, 10)
+
+    def test_width_type(self):
+        """tests width as non-int"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("4", 4, 4, 4)
+
+    def test_width_value_zero(self):
+        """test width as 0"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Rectangle(0, 4)
+
+    def test_width_value_neg(self):
+        """test width as negative"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Rectangle(-4, 4)
+
+    def test_height_type(self):
+        """test height as non-int"""
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(4, [4])
+
+    def test_height_zero(self):
+        """test height as zero"""
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            Rectangle(4, 0)
+
+    def Test_height_value_neg(self):
+        """test height as negative"""
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            Rectangle(4, -4)
+
+    def test_x_type(self):
+        """test x as non-int"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(4, 4, 'x')
+
+    def test_x_value(self):
+        """test x as negative"""
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            Rectangle(4, 4, -4)
+
+    def test_y_type(self):
+        """test y as non-int"""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(4, 4, 4, (4, 4))
+
+    def test_y_value(self):
+        """test y as negative"""
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Rectangle(4, 4, 4, -4)
 
     """ Tests functionality of super()__init__() call"""
 
@@ -101,3 +151,11 @@ class TestRectangle(unittest.TestCase):
         """Tests entering too few args to instantiate object"""
         with self.assertRaises(TypeError):
             r = Rectangle()
+
+    def tes_area_method(self):
+        """tests the method area"""
+        r_1 = Rectangle(5, 5)
+        self.assertEqual(r_1.area(), 25)
+
+#    def test_display_method(self):
+#        """tests the method display"""
