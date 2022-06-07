@@ -37,7 +37,7 @@ class TestSquaredocs(unittest.TestCase):
             self.assertTrue(len(func[1].__doc__) >= 1)
 
 
-class TestRectangle(unittest.TestCase):
+class TestSquare(unittest.TestCase):
     """ Tests functionality of class"""
 
     def test_properties(self):
@@ -81,12 +81,12 @@ class TestRectangle(unittest.TestCase):
     def test_y_type(self):
         """test y as non-int"""
         with self.assertRaisesRegex(TypeError, "y must be an integer"):
-            Squaree(4, 4, (4, 4))
+            Square(4, 4, (4, 4))
 
     def test_y_value(self):
         """test y as negative"""
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
-            Squaree(4, 4, -4)
+            Square(4, 4, -4)
 
     """ Tests functionality of super()__init__() call"""
 
