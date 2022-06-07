@@ -123,7 +123,7 @@ class Rectangle(Base):
         id, width, height, x, y
         """
         num_args = len(args)
-        a_list = ['id', 'height', 'width', 'x', 'y']
+        key_list = ["id", "width", "height", "x", "y"]
 
         if num_args > 4:
             self.y = args[4]

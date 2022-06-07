@@ -73,7 +73,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_id_none(self):
         """Tests id not passed in"""
-        Base.__nb_object = 0
+        Base._Base__nb_objects = 0
         r_2 = Rectangle(1, 1)
         self.assertEqual(r_2.id, 1)
 
@@ -84,12 +84,12 @@ class TestRectangle(unittest.TestCase):
 
     def test_nb_object_increment(self):
         """Tests private class attribute incrementation"""
-        Base.__nb_object = 0
+        Base._Base__nb_objects = 0
         r_4 = Rectangle(1, 1)
         r_5 = Rectangle(1, 1)
         r_6 = Rectangle(1, 1, 1, 1, 55)
         r_7 = Rectangle(1, 1)
-        self.assertEqual(r_7.id, 4)
+        self.assertEqual(r_7.id, 3)
 
     """Tests number of arguments passed in"""
     def test_too_many_args(self):
