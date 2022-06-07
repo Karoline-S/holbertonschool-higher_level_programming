@@ -157,5 +157,35 @@ class TestRectangle(unittest.TestCase):
         r_1 = Rectangle(5, 5)
         self.assertEqual(r_1.area(), 25)
 
+    def test_update_method_args(self):
+        """tests the update method"""
+        r_1 = Rectangle(5, 5, 5, 5, 88)
+        r_1.update(55, 8, 9, 10, 11)
+        self.assertEqual(r_1.id, 55)
+        self.assertEqual(r_1.width, 8)
+        self.assertEqual(r_1.height, 9)
+        self.assertEqual(r_1.x, 10)
+        self.assertEqual(r_1.y, 11)
+
+    def test_update_method_kwargs(self):
+        """tests the udpate method with kwargs"""
+        r_1 = Rectangle(5, 5, 5, 5, 88)
+        r_1.update(x=10, height=10)
+        self.assertEqual(r_1.id, 88)
+        self.assertEqual(r_1.width, 5)
+        self.assertEqual(r_1.height, 10)
+        self.assertEqual(r_1.x, 10)
+        self.assertEqual(r_1.y, 5)
+
+    def test_udpate_method_both(self):
+        """tests the update method with args and kwargs"""
+        r_1 = Rectangle(5, 5, 5, 5, 88)
+        r_1.update(44, width=10)
+        self.assertEqual(r_1.id, 44)
+        self.assertEqual(r_1.width, 5)
+        self.assertEqual(r_1.height, 5)
+        self.assertEqual(r_1.x, 5)
+        self.assertEqual(r_1.y, 5)
+
 #    def test_display_method(self):
 #        """tests the method display"""
