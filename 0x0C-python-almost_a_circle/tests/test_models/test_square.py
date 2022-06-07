@@ -53,6 +53,41 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(s_1.x, 10)
         self.assertEqual(s_1.y, 10)
 
+    def test_size_neg(self):
+        """Tests size as non-int"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square([5])
+
+    def test_size_zero(self):
+        """Tests size as 0"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(0)
+
+    def test_size_neg(self):
+        """Tests size as negative"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(-5)
+
+    def test_x_type(self):
+        """test x as non-int"""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(4, 'x')
+
+    def test_x_value(self):
+        """test x as negative"""
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            Square(4, -4)
+
+    def test_y_type(self):
+        """test y as non-int"""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Squaree(4, 4, (4, 4))
+
+    def test_y_value(self):
+        """test y as negative"""
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Squaree(4, 4, -4)
+
     """ Tests functionality of super()__init__() call"""
 
     def test_id_none(self):
