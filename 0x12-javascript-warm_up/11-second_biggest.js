@@ -1,11 +1,10 @@
 #!/usr/bin/node
 
-const array = process.argv;
+const array = process.argv.splice(2);
 
-if (array.length < 4) {
+if (array.length < 2) {
   console.log('0');
 } else {
-  array.sort();
-  const twoBiggest = array.splice(array.length - 2);
-  console.log(twoBiggest[0]);
+  array.sort(function (a, b) { return b - a; });
+  console.log(array[1]);
 }
