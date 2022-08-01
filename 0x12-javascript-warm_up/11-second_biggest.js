@@ -18,7 +18,7 @@ if (process.argv.length < 4) {
     if (numArray[i] > biggest) {
       nextBiggest = biggest;
       biggest = numArray[i];
-    } else if (numArray[i] > nextBiggest) {
+    } else if (numArray[i] > nextBiggest && numArray[i] != biggest) {
       nextBiggest = numArray[i];
     }
   }
