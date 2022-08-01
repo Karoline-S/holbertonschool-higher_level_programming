@@ -7,7 +7,7 @@ if (process.argv.length < 4) {
   const numArray = [];
 
   while (process.argv[i]) {
-    numArray.push(process.argv[i]);
+    numArray.push(Number(process.argv[i]));
     i++;
   }
 
