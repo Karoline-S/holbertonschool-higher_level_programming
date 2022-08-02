@@ -8,7 +8,7 @@ class Rectangle {
     }
   }
 
-  print (c='X') {
+  print (c = 'X') {
     let columns = '';
     for (let i = 0; i < this.width; i++) {
       columns += c;
