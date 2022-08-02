@@ -8,10 +8,10 @@ class Rectangle {
     }
   }
 
-  print () {
+  print (c='X') {
     let columns = '';
     for (let i = 0; i < this.width; i++) {
-      columns += 'X';
+      columns += c;
     }
     for (let i = 0; i < this.height; i++) {
       console.log(columns);
