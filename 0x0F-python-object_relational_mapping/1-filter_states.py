@@ -16,7 +16,7 @@ if __name__ == "__main__":
         charset="utf8")
 
     cur = conn.cursor()
-    name = '';
+
     cur.execute("SELECT * FROM states\
         WHERE name LIKE 'N%'\
         ORDER BY id ASC")
