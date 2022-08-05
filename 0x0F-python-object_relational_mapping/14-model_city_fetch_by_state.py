@@ -19,5 +19,5 @@ if __name__ == "__main__":
     res = session.query(City, State).filter(City.state_id == State.id).\
         order_by(City.id).all()
     for c, s in res:
-        print(f'{s.name}: {(c.id)} {c.name}')
+        print(f'{s.name}: ({c.id}) {c.name}')
     session.close()
