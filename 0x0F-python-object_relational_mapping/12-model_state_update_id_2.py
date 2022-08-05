@@ -16,6 +16,6 @@ if __name__ == "__main__":
     session = Session(engine)
 
     session.query(State).filter(State.id == 2). \
-        update({"name": "New Mexico"},synchronize_session="fetch")
+        update({"name": "New Mexico"}, synchronize_session="fetch")
     session.commit()
     session.close()
