@@ -20,5 +20,4 @@ if __name__ == "__main__":
         order_by(City.id).all()
     for c, s in res:
         print(f'{s.name}: {(c.id)} {c.name}')
-    session.commit()
     session.close()
