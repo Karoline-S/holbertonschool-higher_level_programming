@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""" script that fetches a given URL """
+"""
+script that fetches a given URL and prints response
+"""
 import urllib.request
 
-
 if __name__ == "__main__":
-    """ script that fetches a given URL """
     with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
         html = response.read()
         print(f'Body response:\n \
