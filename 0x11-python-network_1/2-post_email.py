@@ -9,7 +9,7 @@ import sys
 
 if __name__ == "__main__":
 
-    post_dict = {'email': argv[2]}
+    post_dict = {'email': sys.argv[2]}
     post_data = urllib.parse.urlencode(post_dict)
     encoded_data = post_data.encode('utf-8')
     req = urllib.request.Request(sys.argv[1], encoded_data)
