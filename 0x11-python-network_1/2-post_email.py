@@ -12,7 +12,7 @@ if __name__ == "__main__":
     url = sys.argv[1]
     post_dict = {'email': sys.argv[2]}
     post_data = urllib.parse.urlencode(post_dict)
-    encoded_data = post_data.encode('ascii')
+    data = post_data.encode('ascii')
     req = urllib.request.Request(url, encoded_data)
 
     with urllib.request.urlopen(req) as response:
