@@ -13,4 +13,4 @@ if __name__ == "__main__":
     new_request = request.Request(sys.argv[1], post_data)
     with request.urlopen(new_request) as response:
         html = response.read()
-        print(html.decode('utf-8')
+        print(html.decode('utf-8'))
