@@ -11,4 +11,5 @@ if __name__ == "__main__":
     post_data = encoded_data.encode("utf-8")
     new_request = request.Request(sys.argv[1], post_data)
     with request.urlopen(new_request) as response:
-        print(response.read())
+        html = response.read()
+        print(html.decode('utf-8')
