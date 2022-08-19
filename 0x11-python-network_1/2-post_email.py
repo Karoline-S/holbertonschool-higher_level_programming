@@ -4,16 +4,16 @@ required header field
 """
 import urllib.request
 import urllib.parse
-from sys import argv
+from sys
 
 
 if __name__ == "__main__":
 
-    url = argv[1]
-    values = {'email': argv[2]}
-    data = urllib.parse.urlencode(values)
-    data = data.encode('ascii')
-    req = urllib.request.Request(url, data)
+    post_dict = {'email': sys.argv[2]}
+    post_data = urllib.parse.urlencode(post_dict)
+    encoded_data = post_data.encode('utf-8')
+    req = urllib.request.Request(sys.argv[1], encoded_data)
+
     with urllib.request.urlopen(req) as response:
-        message_body = response.read().decode('utf-8')
-        print(message_body)
+        msg_body = response.read().decode('utf-8')
+        print(msg_body)
