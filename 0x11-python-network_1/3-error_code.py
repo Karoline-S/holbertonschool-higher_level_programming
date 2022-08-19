@@ -2,7 +2,7 @@
 """sends a request to a URL, prints the response body and handles
 HTTPErrors
 """
-from  urllib import request, parse, error
+from urllib import request, parse, error
 import sys
 
 
