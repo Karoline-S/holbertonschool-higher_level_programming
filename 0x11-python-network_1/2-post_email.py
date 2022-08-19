@@ -2,8 +2,8 @@
 """script that fetches a passed in URL and prints
 required header field
 """
-from  urllib import request, parse
-import sys
+from sys
+from urllib import request, parse
 
 if __name__ == "__main__":
     post_dict = {"email": sys.argv[2]}
