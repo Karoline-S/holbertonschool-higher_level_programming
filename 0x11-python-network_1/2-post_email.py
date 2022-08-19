@@ -5,9 +5,10 @@ required header field
 from sys
 from urllib import request, parse
 
+
 if __name__ == "__main__":
 
-    post_dict = {"email": sys.argv[2]}
+    post_dict = {'email': sys.argv[2]}
     encoded_data = parse.urlencode(post_dict)
     post_data = encoded_data.encode("utf-8")
     new_request = request.Request(sys.argv[1], post_data)
