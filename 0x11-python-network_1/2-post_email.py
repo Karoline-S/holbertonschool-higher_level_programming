@@ -2,16 +2,18 @@
 """script that fetches a passed in URL and prints
 required header field
 """
-from sys
-from urllib import request, parse
+import urllib.request
+import urllib.parse
+from sys import argv
 
 
 if __name__ == "__main__":
 
-    post_dict = {'email': sys.argv[2]}
-    encoded_data = parse.urlencode(post_dict)
-    post_data = encoded_data.encode("utf-8")
-    new_request = request.Request(sys.argv[1], post_data)
-    with request.urlopen(new_request) as response:
-        html = response.read()
-        print(html.decode('utf-8'))
+    url = argv[1]
+    values = {'email': argv[2]}
+    data = urllib.parse.urlencode(values)
+    data = data.encode('ascii')
+    req = urllib.request.Request(url, data)
+    with urllib.request.urlopen(req) as response:
+        message_body = response.read().decode('utf-8')
+        print(message_body)
