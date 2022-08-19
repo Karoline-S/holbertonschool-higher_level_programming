@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+"""script that fetches a passed in URL and prints
+required header field
+"""
+from  urllib import request, parse
+from sys import argv
+
+if __name__ == "__main__":
+    post_dict = {"email": argv[2]}
+    encoded_data = parse.urlencode(post_dict)
+    post_data = encoded_data.encode("utf-8")
+    new_request = request.Request(argv[1], post_data)
+    with request.urlopen(new_request) as response:
+        print(response.read())
