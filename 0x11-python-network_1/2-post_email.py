@@ -3,12 +3,12 @@
 required header field
 """
 from  urllib import request, parse
-from sys import argv
+import sys
 
 if __name__ == "__main__":
-    post_dict = {"email": argv[2]}
+    post_dict = {"email": sys.argv[2]}
     encoded_data = parse.urlencode(post_dict)
     post_data = encoded_data.encode("utf-8")
-    new_request = request.Request(argv[1], post_data)
+    new_request = request.Request(sys.argv[1], post_data)
     with request.urlopen(new_request) as response:
         print(response.read())
