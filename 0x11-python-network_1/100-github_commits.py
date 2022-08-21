@@ -16,16 +16,6 @@ if __name__ == "__main__":
         format(repo_name, owner_name)
     r = requests.get(queryurl)
     json_data = r.json()
-    list_len = len(json_data)
-    if list_len <= 10:
-        num_commits = list_len
-    else:
-        num_commits = 10
-    try:
-        i = 0
-        for i in range(num_commits):
-            r_dict = json_data[i]
-            print("{}: {}".format(r_dict['sha'], \
-                                  r_dict['commit']['author']['name']))
-    except Exception:
-        print("None")
+    for commits in json_data[:10]:
+        print("{}: {}". \
+              format(commits['sha'], commits['commit']['author']['name']))
