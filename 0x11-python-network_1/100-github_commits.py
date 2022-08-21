@@ -18,7 +18,7 @@ if __name__ == "__main__":
     json_data = r.json()
     for commits in json_data[:10]:
         try:
-            print("{}: {}". \
+            print("{}: {}".
                   format(commits['sha'], commits['commit']['author']['name']))
         except Keyerror as e:
             print(e)
