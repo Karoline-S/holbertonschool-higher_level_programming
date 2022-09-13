@@ -16,5 +16,10 @@ axios.get(url)
         dict[id] = dict[id] + 1 || 1;
       }
     }
+    for (const user in dict) {
+      if (dict[user] === undefined) {
+        delete dict[user];
+      }
+    }
     console.log(dict);
   });
