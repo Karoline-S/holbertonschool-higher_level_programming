@@ -8,8 +8,8 @@ axios.get(process.argv[2])
     movies.forEach(dict => {
       for (const chars of dict.characters) {
         if (chars.includes('people/18/')) {
-        count += 1;
-	}
+          count += 1;
+        }
       }
     });
     console.log(count);
