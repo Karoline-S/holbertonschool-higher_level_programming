@@ -6,8 +6,10 @@ axios.get(process.argv[2])
     const movies = response.data.results;
     let count = 0;
     movies.forEach(dict => {
-      if (dict.characters.includes('https://swapi-api.hbtn.io/api/people/18/')) {
+      for (const chars of dict.characters) {
+        if (chars.includes('people/18/')) {
         count += 1;
+	}
       }
     });
     console.log(count);
