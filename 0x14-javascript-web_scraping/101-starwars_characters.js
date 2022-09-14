@@ -5,15 +5,19 @@ const url = 'https://swapi-api.hbtn.io/api/films/' + process.argv[2];
 
 axios.get(url)
   .then(function (response) {
-    const characters = response.data.characters;
-    for (let i = 0; i < characters.length; i++) {
-      getName(characters[i]);
-    }
+    getName(response.data.characters);
+  })
+  .catch(err => {
+    console.error(err);
   });
 
-function getName (item) {
-  axios.get(item)
-    .then(function (resp) {
+async function getName (charList) {
+  try {
+    for (const url of charList) {
+      const resp = await axios.get(url);
       console.log(resp.data.name);
-    });
+    }
+  } catch (err) {
+    console.error(err);
+  }
 }
